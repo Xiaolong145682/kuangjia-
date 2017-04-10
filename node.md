@@ -44,3 +44,11 @@ $ npm install express -g     # 全局安装
 `$ npm install <packageName> --force`
 #### 更新已安装的模块
 `$ npm update <packageName>`
+## nvm使用
+`定义:node版本管理器`
+### 安装nvm
+`$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash`
+#### 查看远程node.js版本信息
+`$ nvm ls-remote `
+#### 查看本地所有node.js版本信息
+`$ nvm ls`
