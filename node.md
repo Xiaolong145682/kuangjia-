@@ -12,4 +12,35 @@ Rails。Node.js更不 是浏览器端的库,不能与 jQuery、ExtJS 相提并�
 # 缺点解决办法  
 1. 开启多个进程，每个进程绑定不同的端口，用反向代理服务器如 Nginx 做负载均衡，好处是我们可以借助强大的 Nginx 做一些过滤检查之类的操作，同时能够实现比较好的均衡策略，但坏处也是显而易见——我们引入了一个间接层。
 2. 多进程绑定在同一个端口侦听。在Node.js中，提供了进程间发送“文件句柄” 的功能，这个功能实在是太有用了（貌似是yahoo 的工程师提交的一个patch） ，不明真相的群众可以看这里： Unix socket magic
-2. 一个进程负责监听、接收连接，然后把接收到的连接平均发送到子进程中去处理。在Node.js v0.5.10+ 中，内置了cluster 库，官方宣称直接支持多进程运行方式。Node.js 官方为了让API 接口傻瓜化，用了一些比较tricky的方法，代码也比较绕。这种多进程的方式，不可避免的要牵涉到进程通信、进程管理之类的东西。
+3. 一个进程负责监听、接收连接，然后把接收到的连接平均发送到子进程中去处理。在Node.js v0.5.10+ 中，内置了cluster 库，官方宣称直接支持多进程运行方式。Node.js 官方为了让API 接口傻瓜化，用了一些比较tricky的方法，代码也比较绕。这种多进程的方式，不可避免的要牵涉到进程通信、进程管理之类的东西。
+
+## node.js安装
+#### 安装nodejs的方法
+```js
+$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+```
+#### 开发环境的安装
+```js
+$ sudo apt-get install -y build-essential
+```
+## npm使用
+NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：  
+```
+* 允许用户从NPM服务器下载别人编写的第三方包到本地使用。
+* 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。
+* 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。
+```
+## npm第三方库的安装
+#### 本地安装
+```
+$ npm install express        # 本地安装
+```
+#### 全局安装
+```
+$ npm install express -g     # 全局安装
+```
+#### 强制重新安装
+`$ npm install <packageName> --force`
+#### 更新已安装的模块
+`$ npm update <packageName>`
