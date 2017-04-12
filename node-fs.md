@@ -79,8 +79,8 @@ fs.exists('./node', function(exists){
       * mode:可选参数，表示权限值；
       * callback:可选参数，表示回调函数；
 ### 删除目录
-2. `fs.rmdir(path, [callback(err)])`  
-3. 综合例子
+1. `fs.rmdir(path, [callback(err)])`  
+2. 综合例子
 * 例子：检查当前目录下, 是否存在tem目录, 如果存在将它删除, 如果不存在将创建它.
 ```js
 var fs = require('fs');
