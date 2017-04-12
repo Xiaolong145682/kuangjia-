@@ -71,4 +71,62 @@ fs.exists('./node', function(exists){
   util.debug(exists ? "it's there" : "No dir.")
 })
 ```
+## 创建删除目录
+### 创建目录
+1. `fs.mkdir(path, [mode], [callback(err)])`
+* 参数介绍：
+      * path:表示目录名；
+      * mode:可选参数，表示权限值；
+      * callback:可选参数，表示回调函数；
+### 删除目录
+2. `fs.rmdir(path, [callback(err)])`  
+3. 综合例子
+* 例子：检查当前目录下, 是否存在tem目录, 如果存在将它删除, 如果不存在将创建它.
+```js
+var fs = require('fs');
+var util = require('util');
+var tem = './file';
+//检查该文件是否存在
+ fs.exists(tem,function(exists){
+  if(exists){
+  //存在
+    console.log("It's here " + tem + "\nI will delete it." );
+    fs.rmdir(tem,function(err){
+      if(err){
+        console.error("删除失败！");
+      }else{
+        console.log('删除成功！');
+      }
+    });
+  }
+  //不存在
+  else{
+    fs.mkdir(tem,function(err){
+      console.log("No " + tem + "\nI will create it.");
+      if(err){
+        console.error("创建失败");
+      }else{
+        console.log('创建file成功！');
+      }
+    });
+  }
+});
+
+```
+### stat
+* 获取文件`fs.stat(path, [callback(err, stats)])`
+* 方法介绍：`stat`方法的参数是一个文件或目录，它同够回调函数放回一个stats对象，该对象包含了该文件或目录的具体信息。我们往往通过该方法，判断正在处理的到底是一个文件，还是一个目录。
+### read
+1. 打开文件 fs.open(path,flags, [mode], [callback(err, fd)])
+2. 关闭文件 fs.close(fd, [callback(err)])
+3. 读取文件(文件述符) fs.read(fd,buffer,offset,length,position, [callback(err, bytesRead, buffer)])
+4. 写入文件(文件述符) fs.write(fd,buffer,offset,length,position, [callback(err, bytesWritten, buffer)])
+* 参数介绍：
+      * fd: 文件描述符
+      * buffer: 读或写的缓冲区
+      * offset: 开始读或写的偏移量
+      * length: 读或写的字节数.
+      *opsition: 指定了从哪里开始读取文件，如果position为null，将会从文件当前的位置读取数据。回调函数给定了三个参数， (err, bytesRead, buffer)， 分别为错误，读取的字节和缓冲区。
+      
+
 
