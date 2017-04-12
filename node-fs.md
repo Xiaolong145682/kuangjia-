@@ -75,7 +75,7 @@ fs.exists('./node', function(exists){
 ### 创建目录
 1. `fs.mkdir(path, [mode], [callback(err)])`
 * 参数介绍：
-      * path:表示目录名；
+      * path:表示目录名；
       * mode:可选参数，表示权限值；
       * callback:可选参数，表示回调函数；
 ### 删除目录
