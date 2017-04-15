@@ -17,7 +17,7 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 ```
 ## 启动数据库
-1.　启动mongodb.service
+1. 启动mongodb.service
 ```
 service mongod start
 ```
