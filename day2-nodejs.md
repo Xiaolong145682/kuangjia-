@@ -18,4 +18,4 @@
 ![](http://nts.newbieol.com/static/k6/51.Node.js/class-002/images/diff.png)
 ## Nodejs的事件循环机制
 Node.js 程序由事件循环开始,到事件循环结束,所有的逻辑都是事件的回调函数,所以 Node.js 始终在事件循环中,程序入口就是事件循环第一个事件的回调函数。事件的回调函数在执行的过程中,可能会发出 I/O 请求或 直接发射(emit)事件,执行完毕后再返回事件循环,事件循环会检查事件队列中有没有未处理的事件,直到程序结束。
-![](https://nts.newbieol.com/static/k6/51.Node.js/class-002/images/event.png)
+![](./event.png)
